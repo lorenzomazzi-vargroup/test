@@ -1,7 +1,13 @@
 name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions
 env:
-  MY_ENV_VAR: 1
+  myNull: ${{null}}
+  myBoolean: ${{false}}
+  myInt: ${{123}}
+  myFloat: ${12,3}}
+  myString: Ciao Mamma
+  myStringInBraces: ${{'Ciao Mamma'}}
+  
 on: 
   push:
     branches: main
@@ -13,7 +19,7 @@ jobs:
       - run: echo "Deploying to production server on branch $GITHUB_REF"
 
   non-prod-check:
-    if: $MY_ENV_VAR == 1
+    if: ${{ myInt == 123}}
     runs-on: ubuntu-latest
     steps:
         - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
