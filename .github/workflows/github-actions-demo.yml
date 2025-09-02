@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Deploying to production server on branch $GITHUB_REF"
-      - run: "Env variable == $myInt"
+      - run: echo "Env variable == $myInt"
 
 # questo va solo se la parte prima è andata a buon fine
   non-prod-check:
