@@ -1,25 +1,22 @@
 name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions
-env:
-  myNull: ${{null}}
-  myBoolean: ${{false}}
-  myInt: ${{123}}
-  myFloat: ${12,3}}
-  myString: Ciao Mamma
-  myStringInBraces: ${{'Ciao Mamma'}}
   
 on: 
   push:
     branches: main
 jobs:
+
   prod-check:
     if: ${{ github.ref == 'refs/heads/main' }}
+    env:
+      myInt: ${{1}}
     runs-on: ubuntu-latest
     steps:
       - run: echo "Deploying to production server on branch $GITHUB_REF"
+      - run: echo ${{'Env variable == myInt}}
 
+# questo va solo se la parte prima è andata a buon fine
   non-prod-check:
-    if: ${{ myInt == 123}}
     runs-on: ubuntu-latest
     steps:
         - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
