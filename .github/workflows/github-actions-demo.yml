@@ -5,17 +5,14 @@ on:
   push:
     branches: main
 jobs:
-
   prod-check:
-    if: ${{ github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
     env:
       myInt: 1
-    runs-on: ubuntu-latest
     steps:
-      - run: echo "Deploying to production server on branch $GITHUB_REF"
       - run: echo "Env variable == $myInt"
 
-# questo va solo se la parte prima è andata a buon fine
+# questo va anche se la parte prima NON è andata a buon fine
   non-prod-check:
     runs-on: ubuntu-latest
     steps:
