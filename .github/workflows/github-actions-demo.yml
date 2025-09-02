@@ -9,11 +9,11 @@ jobs:
   prod-check:
     if: ${{ github.ref == 'refs/heads/main' }}
     env:
-      myInt: ${{1}}
+      myInt: 1
     runs-on: ubuntu-latest
     steps:
       - run: echo "Deploying to production server on branch $GITHUB_REF"
-      - run: "Env variable == ${{myInt}}"
+      - run: "Env variable == $myInt"
 
 # questo va solo se la parte prima è andata a buon fine
   non-prod-check:
