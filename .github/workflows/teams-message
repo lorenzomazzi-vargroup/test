@@ -1,0 +1,19 @@
+name: comunicare con teams
+env:
+  myTitolo: "${{Titolo}}"
+on: push
+
+jobs:
+  team-comm:
+    runs-on: ghr-mem
+    steps:
+      - uses: neonidian/teams-notify-build-status@v3
+        with:
+          webhookUrl: ${{ secrets.MSTEAMS_WEBHOOK }}
+          title: "${{myTitolo}}"
+          message: "ciao"
+        env:
+          SHOULD_DISPLAY_VIEW_COMMIT_BUTTON: true
+      - name: sent message
+        run: echo "${{ Messaggio inviato }}"
+        
