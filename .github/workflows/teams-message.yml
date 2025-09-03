@@ -3,15 +3,13 @@ on: push
 
 jobs:
   team-comm:
-    runs-on: ghr-mem
+    runs-on: ubuntu-latest # or your self-hosted runner if it exists
     steps:
       - uses: neonidian/teams-notify-build-status@v3
         with:
           webhookUrl: ${{ secrets.TEAMS_INCOMING_WEBHOOK_URL }}
           title: Titolo
           message: "ciao"
-        env:
-          SHOULD_DISPLAY_VIEW_COMMIT_BUTTON: true
+          shouldDisplayViewCommitButton: true
       - name: sent message
         run: echo "Messaggio inviato"
-        
