@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: neonidian/teams-notify-build-status@v3
         with:
-          webhookUrl: ${{ secrets.MSTEAMS_WEBHOOK }}
+          webhookUrl: ${{ secrets.TEAMS_INCOMING_WEBHOOK_URL }}
           title: "${{myTitolo}}"
           message: "ciao"
         env:
