@@ -1,6 +1,6 @@
 name: comunicare con teams
 env:
-  myTitolo: "${{Titolo}}"
+  myTitolo: ${{Titolo}}
 on: push
 
 jobs:
