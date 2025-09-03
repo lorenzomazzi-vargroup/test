@@ -10,10 +10,10 @@ jobs:
       - uses: neonidian/teams-notify-build-status@v3
         with:
           webhookUrl: ${{ secrets.TEAMS_INCOMING_WEBHOOK_URL }}
-          title: "${{myTitolo}}"
+          title: ${{myTitolo}}
           message: "ciao"
         env:
           SHOULD_DISPLAY_VIEW_COMMIT_BUTTON: true
       - name: sent message
-        run: echo "${{ Messaggio inviato }}"
+        run: echo "Messaggio inviato"
         
